@@ -1,51 +1,42 @@
 import { Platform } from 'react-native';
 
-// Tema Gelap Minimalis & Ramping (Terinspirasi dari Instagram & Threads Dark Mode)
+// Design System Asli Firar: Spiritual Minimalist (Obsidian, Warm Gold, & Emerald)
 export const THEME = {
   colors: {
-    // True Black & Subtle Surfaces (IG / FB Dark Mode)
-    background: '#000000',
-    surface: '#121212',
-    surfaceLighter: '#1C1C1E',
-    border: '#262626',
-    borderLight: '#363636',
+    background: '#090B0E',
+    surface: '#111620',
+    surfaceLighter: '#1A2130',
+    border: '#242D3D',
+    borderLight: '#323E52',
     
-    // Minimalist Accents (No heavy saturated neon gold)
-    accent: '#0095F6', // IG Blue
-    accentSubtle: 'rgba(0, 149, 246, 0.1)',
+    // Spiritual & Noble Accents
+    gold: '#D4AF37',
+    goldMuted: '#997E26',
+    goldGlow: 'rgba(212, 175, 55, 0.15)',
     emerald: '#10B981',
-    emeraldGlow: 'rgba(16, 185, 129, 0.08)',
-    crimson: '#ED4956',
-    crimsonGlow: 'rgba(237, 73, 86, 0.08)',
+    emeraldGlow: 'rgba(16, 185, 129, 0.15)',
+    crimson: '#EF4444',
+    crimsonGlow: 'rgba(239, 68, 68, 0.15)',
     
-    // Sleek Platinum / Neutral (Menggantikan warna emas mencolok)
-    gold: '#F5F5F7',
-    goldMuted: '#8E8E93',
-    goldGlow: 'rgba(255, 255, 255, 0.04)',
-    
-    // Typography (Seramping & sebersih Instagram)
-    textPrimary: '#F5F5F7',
-    textSecondary: '#8E8E93',
-    textTertiary: '#636366',
-    textGold: '#F5F5F7',
+    // Typography
+    textPrimary: '#F9FAFB',
+    textSecondary: '#9CA3AF',
+    textTertiary: '#6B7280',
+    textGold: '#F59E0B',
   },
-  fontFamily: Platform.select({
-    web: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif',
-    default: 'System',
-  }),
   spacing: {
     xs: 4,
     sm: 8,
-    md: 12,
-    lg: 16,
-    xl: 20,
-    xxl: 24,
+    md: 16,
+    lg: 24,
+    xl: 32,
+    xxl: 40,
   },
   borderRadius: {
-    sm: 6,
-    md: 8,
-    lg: 12,
-    xl: 16,
+    sm: 8,
+    md: 12,
+    lg: 16,
+    xl: 24,
     pill: 9999,
   },
 };

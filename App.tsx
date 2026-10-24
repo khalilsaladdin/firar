@@ -7,7 +7,7 @@ import { THEME } from './src/constants/theme';
 import { OnboardingScreen } from './src/screens/OnboardingScreen';
 import { DashboardScreen } from './src/screens/DashboardScreen';
 
-// Inject sleek Instagram/FB system font for Web
+// Inject clean system font for Web
 if (Platform.OS === 'web' && typeof document !== 'undefined') {
   const styleId = 'firar-global-styles';
   if (!document.getElementById(styleId)) {
@@ -18,10 +18,9 @@ if (Platform.OS === 'web' && typeof document !== 'undefined') {
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
-        letter-spacing: normal !important;
       }
       body, html {
-        background-color: #000000 !important;
+        background-color: #090B0E !important;
         margin: 0;
         padding: 0;
       }
