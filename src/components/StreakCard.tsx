@@ -110,11 +110,16 @@ export const StreakCard: React.FC<StreakCardProps> = ({
 const styles = StyleSheet.create({
   card: {
     backgroundColor: THEME.colors.surface,
-    borderRadius: THEME.borderRadius.lg,
-    padding: THEME.spacing.md,
+    borderRadius: THEME.borderRadius.xl,
+    padding: THEME.spacing.lg,
     borderWidth: 1,
     borderColor: THEME.colors.border,
     marginBottom: THEME.spacing.md,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 6 },
+    shadowOpacity: 0.35,
+    shadowRadius: 12,
+    elevation: 4,
   },
   headerRow: {
     flexDirection: 'row',
@@ -125,23 +130,23 @@ const styles = StyleSheet.create({
   badge: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: 'rgba(16, 185, 129, 0.1)',
-    paddingHorizontal: 8,
-    paddingVertical: 4,
+    backgroundColor: 'rgba(16, 185, 129, 0.12)',
+    paddingHorizontal: 10,
+    paddingVertical: 5,
     borderRadius: THEME.borderRadius.pill,
     borderWidth: 1,
-    borderColor: 'rgba(16, 185, 129, 0.3)',
+    borderColor: 'rgba(16, 185, 129, 0.35)',
   },
   badgeDot: {
     color: THEME.colors.emerald,
     fontSize: 9,
-    marginRight: 4,
+    marginRight: 6,
   },
   badgeText: {
     fontSize: 10,
     fontWeight: '700',
-    color: THEME.colors.emerald,
-    letterSpacing: 0.5,
+    color: THEME.colors.emeraldLight,
+    letterSpacing: 0.8,
   },
   actionLinks: {
     flexDirection: 'row',
@@ -153,7 +158,7 @@ const styles = StyleSheet.create({
   },
   miniLinkText: {
     fontSize: 11,
-    color: THEME.colors.textTertiary,
+    color: THEME.colors.textSecondary,
     textDecorationLine: 'underline',
   },
   dotSeparator: {
@@ -167,9 +172,10 @@ const styles = StyleSheet.create({
     marginVertical: THEME.spacing.xs,
   },
   countNumber: {
-    fontSize: 36,
+    fontSize: 42,
     fontWeight: '800',
-    color: THEME.colors.textPrimary,
+    color: THEME.colors.goldLight,
+    letterSpacing: -1,
     marginRight: THEME.spacing.sm,
   },
   labelWrapper: {
@@ -178,9 +184,9 @@ const styles = StyleSheet.create({
   },
   countUnit: {
     fontSize: 12,
-    fontWeight: '700',
+    fontWeight: '800',
     color: THEME.colors.gold,
-    letterSpacing: 0.5,
+    letterSpacing: 1,
   },
   spiritualNote: {
     fontSize: 11,
@@ -206,7 +212,7 @@ const styles = StyleSheet.create({
   },
   divider: {
     height: 1,
-    backgroundColor: THEME.colors.border,
+    backgroundColor: 'rgba(223, 186, 88, 0.12)',
     marginVertical: THEME.spacing.md,
   },
   metaRow: {
@@ -221,15 +227,16 @@ const styles = StyleSheet.create({
   verticalDivider: {
     width: 1,
     height: 24,
-    backgroundColor: THEME.colors.border,
+    backgroundColor: 'rgba(223, 186, 88, 0.12)',
   },
   metaLabel: {
     fontSize: 10,
     color: THEME.colors.textTertiary,
-    marginBottom: 2,
+    marginBottom: 3,
+    letterSpacing: 0.5,
   },
   metaValue: {
-    fontSize: 12,
+    fontSize: 13,
     fontWeight: '700',
     color: THEME.colors.textPrimary,
   },
@@ -237,11 +244,11 @@ const styles = StyleSheet.create({
     marginTop: THEME.spacing.md,
     paddingTop: THEME.spacing.sm,
     borderTopWidth: 1,
-    borderTopColor: 'rgba(255, 255, 255, 0.04)',
+    borderTopColor: 'rgba(255, 255, 255, 0.05)',
   },
   adabText: {
     fontSize: 10,
-    color: THEME.colors.textTertiary,
+    color: THEME.colors.textSecondary,
     textAlign: 'center',
     fontStyle: 'italic',
     lineHeight: 15,

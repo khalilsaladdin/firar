@@ -69,19 +69,19 @@ export const AboutFirarSection: React.FC = () => {
             </Text>
             <View style={styles.bulletList}>
               <View style={styles.bulletRow}>
-                <Text style={styles.bulletDot}>•</Text>
+                <Text style={styles.bulletCheck}>✦</Text>
                 <Text style={styles.bulletText}>
                   <Text style={styles.boldWhite}>Integrasi Syar'i & Neurosains:</Text> Memadukan khazanah kitab para ulama Salafus Shalih (*Kitab Al-Kaba'ir karya Imam Adz-Dzahabi, Al-Jawab Al-Kafi karya Ibnul Qayyim*) dengan pemahaman ilmiah modern mengenai pemulihan sirkuit dopamin otak (*Prefrontal Cortex*).
                 </Text>
               </View>
               <View style={styles.bulletRow}>
-                <Text style={styles.bulletDot}>•</Text>
+                <Text style={styles.bulletCheck}>✦</Text>
                 <Text style={styles.bulletText}>
                   <Text style={styles.boldWhite}>Payung Ekosistem (Meta Hub):</Text> Menaungi aplikasi spesialis untuk menuntaskan dua fitnah terbesar manusia: <Text style={styles.boldWhite}>Fitnah Syahwat</Text> (melalui pilar Iffah) dan <Text style={styles.boldWhite}>Fitnah Syubhat</Text> (melalui pilar Yaqeen).
                 </Text>
               </View>
               <View style={styles.bulletRow}>
-                <Text style={styles.bulletDot}>•</Text>
+                <Text style={styles.bulletCheck}>✦</Text>
                 <Text style={styles.bulletText}>
                   <Text style={styles.boldWhite}>100% Menjaga Aib & Privasi:</Text> Menolak budaya menghakimi (*zero judgment*), tanpa stigma, dan data perjalanan tersimpan secara anonim langsung di perangkat pengguna.
                 </Text>
@@ -124,28 +124,35 @@ const styles = StyleSheet.create({
     backgroundColor: THEME.colors.surface,
     borderColor: THEME.colors.border,
     borderWidth: 1,
-    borderRadius: THEME.borderRadius.md,
-    marginVertical: 8,
+    borderRadius: THEME.borderRadius.xl,
+    marginVertical: 10,
     overflow: 'hidden',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.3,
+    shadowRadius: 10,
+    elevation: 3,
   },
   headerBtn: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    padding: 12,
+    padding: 14,
     backgroundColor: THEME.colors.surfaceLighter,
+    borderBottomWidth: 1,
+    borderBottomColor: 'rgba(223, 186, 88, 0.1)',
   },
   tagRow: {
     flexDirection: 'row',
     alignItems: 'center',
     gap: 6,
-    marginBottom: 2,
+    marginBottom: 3,
   },
   tagText: {
     color: THEME.colors.gold,
     fontSize: 9,
-    fontWeight: '700',
-    letterSpacing: 0.5,
+    fontWeight: '800',
+    letterSpacing: 1,
   },
   tagDot: {
     width: 3,
@@ -156,91 +163,99 @@ const styles = StyleSheet.create({
   subTagText: {
     color: THEME.colors.textSecondary,
     fontSize: 9,
-    fontWeight: '500',
+    fontWeight: '600',
   },
   titleText: {
-    color: THEME.colors.gold,
-    fontSize: 14,
+    color: THEME.colors.textPrimary,
+    fontSize: 15,
     fontWeight: '700',
   },
   collapsePill: {
-    backgroundColor: 'rgba(212, 175, 55, 0.1)',
-    borderColor: 'rgba(212, 175, 55, 0.3)',
+    backgroundColor: 'rgba(223, 186, 88, 0.1)',
+    borderColor: 'rgba(223, 186, 88, 0.35)',
     borderWidth: 1,
-    paddingHorizontal: 9,
-    paddingVertical: 4,
+    paddingHorizontal: 10,
+    paddingVertical: 5,
     borderRadius: THEME.borderRadius.pill,
   },
   collapsePillText: {
-    color: THEME.colors.gold,
+    color: THEME.colors.goldLight,
     fontSize: 10,
     fontWeight: '700',
   },
   body: {
-    padding: 12,
-    gap: 12,
+    padding: 16,
+    gap: 16,
   },
   block: {
-    gap: 4,
+    gap: 6,
   },
   blockHeading: {
-    fontSize: 12,
+    fontSize: 13,
     fontWeight: '700',
-    color: THEME.colors.textPrimary,
+    color: THEME.colors.goldLight,
+    letterSpacing: 0.3,
     marginBottom: 2,
   },
   paragraph: {
-    fontSize: 11,
+    fontSize: 12,
     color: THEME.colors.textSecondary,
-    lineHeight: 16,
+    lineHeight: 18,
   },
   boldWhite: {
     color: THEME.colors.textPrimary,
-    fontWeight: '600',
+    fontWeight: '700',
   },
   italicText: {
     fontStyle: 'italic',
-    color: THEME.colors.textSecondary,
+    color: THEME.colors.goldLight,
   },
   quoteBox: {
-    backgroundColor: 'rgba(212, 175, 55, 0.08)',
-    borderColor: 'rgba(212, 175, 55, 0.25)',
+    backgroundColor: 'rgba(223, 186, 88, 0.06)',
+    borderColor: 'rgba(223, 186, 88, 0.28)',
     borderWidth: 1,
-    borderRadius: 6,
-    padding: 8,
-    marginVertical: 4,
+    borderRadius: THEME.borderRadius.md,
+    padding: 14,
+    marginVertical: 6,
   },
   quoteArabic: {
     color: THEME.colors.gold,
-    fontSize: 14,
+    fontSize: 16,
     textAlign: 'center',
-    marginBottom: 4,
-    fontWeight: '600',
+    marginBottom: 6,
+    fontWeight: '700',
+    lineHeight: 24,
   },
   quoteTranslation: {
-    color: '#8E8E93',
-    fontSize: 10,
-    lineHeight: 14,
+    color: THEME.colors.textSecondary,
+    fontSize: 11,
+    lineHeight: 16,
     textAlign: 'center',
+    fontStyle: 'italic',
   },
   bulletList: {
-    marginTop: 4,
-    gap: 6,
+    marginTop: 6,
+    gap: 8,
   },
   bulletRow: {
     flexDirection: 'row',
     alignItems: 'flex-start',
-    gap: 6,
+    gap: 8,
   },
   bulletDot: {
-    color: '#8E8E93',
-    fontSize: 10,
+    color: THEME.colors.gold,
+    fontSize: 11,
     fontWeight: 'bold',
+  },
+  bulletCheck: {
+    color: THEME.colors.emerald,
+    fontSize: 10,
+    marginTop: 2,
   },
   bulletText: {
     flex: 1,
-    color: '#8E8E93',
-    fontSize: 11,
-    lineHeight: 16,
+    color: THEME.colors.textSecondary,
+    fontSize: 12,
+    lineHeight: 17,
   },
 });

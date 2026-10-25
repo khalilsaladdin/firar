@@ -7,7 +7,7 @@ import { THEME } from './src/constants/theme';
 import { OnboardingScreen } from './src/screens/OnboardingScreen';
 import { DashboardScreen } from './src/screens/DashboardScreen';
 
-// Inject clean system font for Web
+// Inject luxury typography and styling for Web
 if (Platform.OS === 'web' && typeof document !== 'undefined') {
   const styleId = 'firar-global-styles';
   if (!document.getElementById(styleId)) {
@@ -15,14 +15,33 @@ if (Platform.OS === 'web' && typeof document !== 'undefined') {
     style.id = styleId;
     style.textContent = `
       * {
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
       }
       body, html {
-        background-color: #090B0E !important;
+        background-color: #07090E !important;
+        background: radial-gradient(circle at 50% -10%, #172134 0%, #07090E 65%) fixed !important;
         margin: 0;
         padding: 0;
+        min-height: 100vh;
+      }
+      /* Luxury Canvas Shadow */
+      #root > div {
+        box-shadow: 0 0 80px rgba(0, 0, 0, 0.9), 0 0 40px rgba(223, 186, 88, 0.06);
+      }
+      ::-webkit-scrollbar {
+        width: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #07090E;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: rgba(223, 186, 88, 0.25);
+        border-radius: 999px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: rgba(223, 186, 88, 0.55);
       }
     `;
     document.head.appendChild(style);
@@ -103,5 +122,9 @@ const styles = StyleSheet.create({
     maxWidth: 500,
     marginHorizontal: 'auto',
     backgroundColor: THEME.colors.background,
+    borderLeftWidth: 1,
+    borderRightWidth: 1,
+    borderLeftColor: 'rgba(223, 186, 88, 0.12)',
+    borderRightColor: 'rgba(223, 186, 88, 0.12)',
   },
 });

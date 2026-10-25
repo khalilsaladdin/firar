@@ -223,12 +223,16 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
           <TouchableOpacity
             activeOpacity={0.9}
             onPress={handleSecretTitlePress}
+            style={styles.headerTitleWrap}
           >
-            <Text style={styles.headerTitle}>FIRAR • فِرَار</Text>
+            <View style={styles.brandRow}>
+              <Text style={styles.headerTitle}>FIRAR</Text>
+              <Text style={styles.headerTitleArabic}>فِـرَار</Text>
+            </View>
             <Text style={styles.headerSubtitle}>
               {activeMainTab === 'beranda'
-                ? 'Halaman Utama • Pulang Menuju Allah'
-                : 'Portal Murid • Bimbingan & Ukhuwah'}
+                ? '✦ Kembali Menuju Allah • Tazkiyatun Nufus ✦'
+                : '✦ Portal Murid • Bimbingan & Ukhuwah ✦'}
             </Text>
           </TouchableOpacity>
 
@@ -313,8 +317,12 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
 
             {/* Memento Reminder Banner */}
             <View style={styles.mementoPill}>
+              <View style={styles.mementoTopRow}>
+                <Text style={styles.mementoTag}>MUTIARA SALAF • TAZKIRUL MAUT</Text>
+                <Text style={styles.mementoStar}>✦</Text>
+              </View>
               <Text style={styles.mementoPillText}>
-                ⏳ "Dunia ini singkat, dan nafas kita adalah pinjaman. Jadikan setiap detik hari ini bersih dalam keridhaan-Nya."
+                "Dunia ini sesaat, nafas kita adalah pinjaman berbatas. Jadikan detik hari ini jernih dalam keridhaan-Nya sebelum pintu taubat tertutup."
               </Text>
             </View>
 
@@ -792,29 +800,49 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingHorizontal: THEME.spacing.md,
-    paddingVertical: THEME.spacing.sm,
+    paddingVertical: 14,
     borderBottomWidth: 1,
-    borderBottomColor: THEME.colors.border,
+    borderBottomColor: 'rgba(223, 186, 88, 0.15)',
     backgroundColor: THEME.colors.surface,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.3,
+    shadowRadius: 10,
+    elevation: 4,
+  },
+  headerTitleWrap: {
+    gap: 2,
+  },
+  brandRow: {
+    flexDirection: 'row',
+    alignItems: 'baseline',
+    gap: 8,
   },
   headerTitle: {
-    fontSize: 15,
-    fontWeight: '800',
+    fontSize: 18,
+    fontWeight: '900',
+    color: THEME.colors.goldLight,
+    letterSpacing: 1.5,
+  },
+  headerTitleArabic: {
+    fontSize: 17,
+    fontWeight: '700',
     color: THEME.colors.gold,
-    letterSpacing: 0.5,
   },
   headerSubtitle: {
-    fontSize: 11,
+    fontSize: 10,
     color: THEME.colors.textSecondary,
+    fontWeight: '600',
+    letterSpacing: 0.3,
   },
   headerActions: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 6,
+    gap: 8,
   },
   ownerBadge: {
     backgroundColor: THEME.colors.surfaceLighter,
-    paddingHorizontal: 8,
+    paddingHorizontal: 10,
     paddingVertical: 5,
     borderRadius: THEME.borderRadius.pill,
     borderWidth: 1,
@@ -822,7 +850,7 @@ const styles = StyleSheet.create({
   },
   ownerBadgeActive: {
     borderColor: THEME.colors.gold,
-    backgroundColor: 'rgba(212, 175, 55, 0.15)',
+    backgroundColor: 'rgba(223, 186, 88, 0.15)',
   },
   ownerBadgeText: {
     fontSize: 10,
@@ -830,30 +858,30 @@ const styles = StyleSheet.create({
     color: THEME.colors.textSecondary,
   },
   iconBtn: {
-    backgroundColor: THEME.colors.surfaceLighter,
-    width: 30,
-    height: 30,
-    borderRadius: 15,
+    backgroundColor: 'rgba(223, 186, 88, 0.08)',
+    width: 34,
+    height: 34,
+    borderRadius: 17,
     justifyContent: 'center',
     alignItems: 'center',
     borderWidth: 1,
-    borderColor: THEME.colors.border,
+    borderColor: 'rgba(223, 186, 88, 0.25)',
   },
   iconBtnText: {
-    fontSize: 14,
+    fontSize: 15,
   },
   privacyBadge: {
-    backgroundColor: THEME.colors.surfaceLighter,
-    width: 30,
-    height: 30,
-    borderRadius: 15,
+    backgroundColor: 'rgba(223, 186, 88, 0.08)',
+    width: 34,
+    height: 34,
+    borderRadius: 17,
     justifyContent: 'center',
     alignItems: 'center',
     borderWidth: 1,
-    borderColor: THEME.colors.borderLight,
+    borderColor: 'rgba(223, 186, 88, 0.25)',
   },
   privacyBadgeText: {
-    fontSize: 13,
+    fontSize: 14,
   },
   scrollArea: {
     flex: 1,
@@ -862,7 +890,7 @@ const styles = StyleSheet.create({
     padding: THEME.spacing.md,
   },
   ownerActiveBanner: {
-    backgroundColor: 'rgba(212, 175, 55, 0.15)',
+    backgroundColor: 'rgba(223, 186, 88, 0.15)',
     borderRadius: THEME.borderRadius.md,
     padding: THEME.spacing.sm,
     borderWidth: 1,
@@ -876,18 +904,20 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   commitmentBanner: {
-    backgroundColor: 'rgba(212, 175, 55, 0.08)',
-    borderRadius: THEME.borderRadius.md,
+    backgroundColor: 'rgba(223, 186, 88, 0.06)',
+    borderRadius: THEME.borderRadius.lg,
     padding: THEME.spacing.md,
     borderLeftWidth: 3,
     borderLeftColor: THEME.colors.gold,
+    borderWidth: 1,
+    borderColor: 'rgba(223, 186, 88, 0.15)',
     marginBottom: THEME.spacing.md,
   },
   commitmentLabel: {
     fontSize: 10,
     fontWeight: '800',
     color: THEME.colors.gold,
-    letterSpacing: 0.5,
+    letterSpacing: 1,
     marginBottom: 2,
   },
   commitmentText: {
@@ -897,18 +927,38 @@ const styles = StyleSheet.create({
     lineHeight: 18,
   },
   mementoPill: {
-    backgroundColor: THEME.colors.surfaceLighter,
-    borderRadius: THEME.borderRadius.md,
-    paddingVertical: 10,
-    paddingHorizontal: 12,
-    borderLeftWidth: 3,
-    borderLeftColor: THEME.colors.goldMuted,
+    backgroundColor: 'rgba(223, 186, 88, 0.05)',
+    borderRadius: THEME.borderRadius.lg,
+    padding: 14,
+    borderWidth: 1,
+    borderColor: 'rgba(223, 186, 88, 0.22)',
     marginBottom: THEME.spacing.md,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 3 },
+    shadowOpacity: 0.25,
+    shadowRadius: 8,
+    elevation: 3,
+  },
+  mementoTopRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 6,
+  },
+  mementoTag: {
+    fontSize: 9,
+    fontWeight: '800',
+    color: THEME.colors.gold,
+    letterSpacing: 1,
+  },
+  mementoStar: {
+    fontSize: 10,
+    color: THEME.colors.gold,
   },
   mementoPillText: {
     fontSize: 11,
-    color: THEME.colors.textSecondary,
-    lineHeight: 17,
+    color: THEME.colors.textPrimary,
+    lineHeight: 18,
     fontStyle: 'italic',
   },
 
@@ -1157,33 +1207,35 @@ const styles = StyleSheet.create({
   // Floating Button
   floatingButtonContainer: {
     position: 'absolute',
-    bottom: 68,
+    bottom: 66,
     left: THEME.spacing.md,
     right: THEME.spacing.md,
   },
   pauseButton: {
-    backgroundColor: THEME.colors.surfaceLighter,
-    borderRadius: THEME.borderRadius.lg,
-    paddingVertical: 11,
-    paddingHorizontal: 14,
+    backgroundColor: 'rgba(15, 23, 42, 0.96)',
+    borderRadius: THEME.borderRadius.pill,
+    paddingVertical: 12,
+    paddingHorizontal: 16,
     flexDirection: 'row',
     alignItems: 'center',
     borderWidth: 1.5,
-    borderColor: THEME.colors.goldMuted,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 4 },
+    borderColor: 'rgba(223, 186, 88, 0.5)',
+    shadowColor: THEME.colors.emerald,
+    shadowOffset: { width: 0, height: 6 },
     shadowOpacity: 0.5,
-    shadowRadius: 8,
-    elevation: 8,
+    shadowRadius: 12,
+    elevation: 10,
   },
   pauseIconCircle: {
-    width: 36,
-    height: 36,
-    borderRadius: 18,
-    backgroundColor: 'rgba(212, 175, 55, 0.15)',
+    width: 38,
+    height: 38,
+    borderRadius: 19,
+    backgroundColor: 'rgba(16, 185, 129, 0.18)',
     justifyContent: 'center',
     alignItems: 'center',
-    marginRight: THEME.spacing.sm,
+    marginRight: 10,
+    borderWidth: 1,
+    borderColor: 'rgba(16, 185, 129, 0.4)',
   },
   pauseIconText: {
     fontSize: 18,
@@ -1192,24 +1244,24 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   pauseButtonTitle: {
-    color: THEME.colors.gold,
+    color: THEME.colors.goldLight,
     fontSize: 12,
     fontWeight: '800',
-    letterSpacing: 0.5,
+    letterSpacing: 0.8,
   },
   pauseButtonSubtitle: {
     color: THEME.colors.textSecondary,
     fontSize: 10,
-    marginTop: 1,
+    marginTop: 2,
   },
 
   // Bottom Navigation Bar
   bottomNav: {
     flexDirection: 'row',
-    backgroundColor: THEME.colors.surface,
+    backgroundColor: 'rgba(11, 16, 26, 0.98)',
     borderTopWidth: 1,
-    borderTopColor: THEME.colors.border,
-    paddingVertical: 8,
+    borderTopColor: 'rgba(223, 186, 88, 0.16)',
+    paddingVertical: 10,
     paddingHorizontal: THEME.spacing.md,
   },
   navTabItem: {
@@ -1234,15 +1286,15 @@ const styles = StyleSheet.create({
     color: THEME.colors.gold,
   },
   collapseHeaderPill: {
-    backgroundColor: 'rgba(212, 175, 55, 0.1)',
-    borderColor: 'rgba(212, 175, 55, 0.3)',
+    backgroundColor: 'rgba(223, 186, 88, 0.1)',
+    borderColor: 'rgba(223, 186, 88, 0.35)',
     borderWidth: 1,
-    paddingHorizontal: 9,
-    paddingVertical: 4,
+    paddingHorizontal: 10,
+    paddingVertical: 5,
     borderRadius: THEME.borderRadius.pill,
   },
   collapseHeaderPillText: {
-    color: THEME.colors.gold,
+    color: THEME.colors.goldLight,
     fontSize: 10,
     fontWeight: '700',
   },

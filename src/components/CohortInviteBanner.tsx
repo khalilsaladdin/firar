@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Alert } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Alert, Platform } from 'react-native';
 import { THEME } from '../constants/theme';
 
 export const CohortInviteBanner: React.FC = () => {
@@ -50,11 +50,16 @@ export const CohortInviteBanner: React.FC = () => {
 const styles = StyleSheet.create({
   bannerContainer: {
     backgroundColor: THEME.colors.surfaceLighter,
-    borderRadius: THEME.borderRadius.lg,
-    padding: THEME.spacing.md,
+    borderRadius: THEME.borderRadius.xl,
+    padding: THEME.spacing.lg,
     borderWidth: 1.5,
-    borderColor: THEME.colors.goldMuted,
+    borderColor: 'rgba(223, 186, 88, 0.35)',
     marginVertical: THEME.spacing.md,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.35,
+    shadowRadius: 10,
+    elevation: 4,
   },
   badgeRow: {
     flexDirection: 'row',
@@ -64,28 +69,28 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: THEME.colors.goldGlow,
-    paddingHorizontal: 8,
-    paddingVertical: 3,
+    paddingHorizontal: 10,
+    paddingVertical: 4,
     borderRadius: THEME.borderRadius.pill,
     borderWidth: 1,
-    borderColor: 'rgba(212, 175, 55, 0.3)',
+    borderColor: 'rgba(223, 186, 88, 0.35)',
   },
   liveDot: {
     color: THEME.colors.gold,
-    fontSize: 10,
-    marginRight: 4,
+    fontSize: 9,
+    marginRight: 6,
   },
   liveText: {
-    color: THEME.colors.gold,
+    color: THEME.colors.goldLight,
     fontSize: 9,
-    fontWeight: '700',
-    letterSpacing: 0.5,
+    fontWeight: '800',
+    letterSpacing: 0.8,
   },
   bannerTitle: {
-    fontSize: 15,
-    fontWeight: '700',
+    fontSize: 16,
+    fontWeight: '800',
     color: THEME.colors.textPrimary,
-    marginTop: 4,
+    marginTop: 6,
     marginBottom: 4,
   },
   bannerSubtitle: {
@@ -96,13 +101,14 @@ const styles = StyleSheet.create({
   },
   actionBtn: {
     backgroundColor: THEME.colors.gold,
-    paddingVertical: 10,
+    paddingVertical: 12,
     borderRadius: THEME.borderRadius.md,
     alignItems: 'center',
   },
   actionBtnText: {
-    color: '#000000',
-    fontSize: 12,
+    color: '#07090E',
+    fontSize: 13,
     fontWeight: '800',
+    letterSpacing: 0.3,
   },
 });
