@@ -121,7 +121,6 @@ export const OwnerAuthModal: React.FC<OwnerAuthModalProps> = ({
                 onChangeText={setPin}
                 maxLength={6}
               />
-              <Text style={styles.hintText}>*PIN Default Bawaan: 2026</Text>
 
               <TouchableOpacity style={styles.submitBtn} onPress={handleSubmit} activeOpacity={0.8}>
                 <Text style={styles.submitBtnText}>Aktifkan Mode Pengelola ›</Text>

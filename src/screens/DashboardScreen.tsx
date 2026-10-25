@@ -65,6 +65,7 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
 
   // Owner CMS Modals State
   const [ownerAuthModalVisible, setOwnerAuthModalVisible] = useState<boolean>(false);
+  const [secretTapCount, setSecretTapCount] = useState<number>(0);
   const [editSinModalVisible, setEditSinModalVisible] = useState<boolean>(false);
   const [sinToEdit, setSinToEdit] = useState<SinItem | null>(null);
   const [editArticleModalVisible, setEditArticleModalVisible] = useState<boolean>(false);
@@ -95,6 +96,18 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
   const handleOpenPause = () => {
     triggerLightHaptic();
     setPauseModalVisible(true);
+  };
+
+  const handleSecretTitlePress = () => {
+    setSecretTapCount((prev) => {
+      const next = prev + 1;
+      if (next >= 5) {
+        triggerLightHaptic();
+        setOwnerAuthModalVisible(true);
+        return 0;
+      }
+      return next;
+    });
   };
 
   const handlePauseSuccess = () => {
@@ -207,33 +220,38 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
       <View style={styles.container}>
         {/* Top App Header */}
         <View style={styles.header}>
-          <View>
+          <TouchableOpacity
+            activeOpacity={0.9}
+            onPress={handleSecretTitlePress}
+          >
             <Text style={styles.headerTitle}>FIRAR • فِرَار</Text>
             <Text style={styles.headerSubtitle}>
               {activeMainTab === 'beranda'
                 ? 'Halaman Utama • Pulang Menuju Allah'
                 : 'Portal Murid • Bimbingan & Ukhuwah'}
             </Text>
-          </View>
+          </TouchableOpacity>
 
           {/* Quick Action Badges */}
           <View style={styles.headerActions}>
-            {/* Tombol Mode Pengelola Owner */}
-            <TouchableOpacity
-              onPress={() => {
-                triggerLightHaptic();
-                setOwnerAuthModalVisible(true);
-              }}
-              style={[
-                styles.ownerBadge,
-                userState.isOwnerMode && styles.ownerBadgeActive,
-              ]}
-              activeOpacity={0.7}
-            >
-              <Text style={[styles.ownerBadgeText, userState.isOwnerMode && styles.textGold]}>
-                {userState.isOwnerMode ? '👑 Owner: AKTIF' : '👑 Pengelola'}
-              </Text>
-            </TouchableOpacity>
+            {/* Tombol Mode Pengelola Owner - Hanya Tampil Jika Sedang Aktif */}
+            {userState.isOwnerMode && (
+              <TouchableOpacity
+                onPress={() => {
+                  triggerLightHaptic();
+                  setOwnerAuthModalVisible(true);
+                }}
+                style={[
+                  styles.ownerBadge,
+                  styles.ownerBadgeActive,
+                ]}
+                activeOpacity={0.7}
+              >
+                <Text style={[styles.ownerBadgeText, styles.textGold]}>
+                  👑 Owner: AKTIF
+                </Text>
+              </TouchableOpacity>
+            )}
 
             <TouchableOpacity
               onPress={() => {

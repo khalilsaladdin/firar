@@ -170,7 +170,7 @@ export const StorageService = {
       return { success: true, updatedState: updated, message: 'Mode Pengelola Berhasil Diaktifkan!' };
     }
 
-    return { success: false, message: 'PIN Pengelola Salah. (Gunakan PIN default: 2026)' };
+    return { success: false, message: 'PIN Pengelola Salah. Akses ditolak.' };
   },
 
   async saveCustomSins(sins: SinItem[]): Promise<UserState> {
